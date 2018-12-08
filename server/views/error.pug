@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet')
+        link(rel='stylesheet', href='/css/error.css', type='text/css')
+        script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+        script(src='//code.jquery.com/jquery-1.11.1.min.js')
+        // ---- Include the above in your HEAD tag --------
+    body
+        .container
+        .row
+            .col-md-12
+            .error-template
+                h1
+                | Oops!
+                - var mainMessage = status + ' - ' + message
+                h2= mainMessage
+                .error-details
+                    if(error)
+                        pre=error.stack 
+                    else
+                        | Sorry, an error has occured, Requested page not found!
+                .error-actions
+                a.btn.btn-primary.btn-lg(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-home
+                    |                         Take Me Home
+                a.btn.btn-default.btn-lg(href='http://www.jquery2dotnet.com')
+                    span.glyphicon.glyphicon-envelope
+                    |  Contact Support
